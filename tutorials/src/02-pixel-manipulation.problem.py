@@ -38,13 +38,13 @@ print(greyImage[:,0])
 
 # TODO Continue with the color image
 # TODO Set an area of the image to black
-rectangleStart = [150, 80]
+rectangleStart = [50, 80]
 rectangleEnd = [250, 180]
 for x in range(rectangleEnd[0] - rectangleStart[0]):
     xPos = rectangleStart[0] + x
     for y in range(rectangleEnd[1] - rectangleStart[1]):
         yPos = rectangleStart[1] + y
-        colorImage[xPos][yPos] = [0, 0, 0]
+        colorImage[yPos][xPos] = [0, 0, 0]
 
 # TODO Show the image and wait until key pressed
 cv2.imshow("ColorImage", colorImage)
@@ -57,10 +57,10 @@ print("Colors: " + str(colors))
 
 # TODO Copy one part of an image into another one
 copySize = [90, 120]
-copyFromPosition = [150,80]
+copyFromPosition = [100,120]
 copyToPosition = [400, 400]
-copyData = colorImage[copyFromPosition[0]:copyFromPosition[0] + copySize[0], copyFromPosition[1]: copyFromPosition[1]+ copySize[1]]
-colorImage[copyToPosition[0]:copyToPosition[0] + copySize[0], copyToPosition[1]: copyToPosition[1]+ copySize[1]] = copyData
+copyData = colorImage[copyFromPosition[1]:copyFromPosition[1] + copySize[1], copyFromPosition[0]: copyFromPosition[0]+ copySize[0]]
+colorImage[copyToPosition[1]:copyToPosition[1] + copySize[1], copyToPosition[0]: copyToPosition[0]+ copySize[0]] = copyData
 
 # TODO Save image to a file
 #cv2.imwrite(filename=r"C:\Users\sebas\Desktop\GDV\GDV_SoSe2025\Test\test.jpg", img=image)
